@@ -61,6 +61,18 @@ const histroyTracks = [
     'audio/Narration/H4.m4a'
 ]
 
+const windowTracks = [
+    'audio/Narration/W1.m4a', 
+    'audio/Narration/W2.m4a',
+    'audio/Narration/W3.m4a'
+]
+
+const hvacTracks = [
+    'audio/Narration/HVAC 1.m4a',
+    'audio/Narration/HVAC 2.m4a'
+]
+
+
 
 const pages = [
 {title:"The Beginning!",
@@ -147,12 +159,13 @@ window.addEventListener("load", () =>{
 let currentTrack = 0;
 let Music = null;
 let history = null;
+let windowAudio = null;
+let hvacAudio = null;
 
 function playMusic(index = 0){
     if (Music) {
         Music.stop();
     }
-
 
     Music = new Howl({
         src: [tracks[index]],
@@ -163,7 +176,7 @@ function playMusic(index = 0){
         }
     });
     Music.play();
-    Music.fade(0, 0.6, 3000);
+    Music.fade(Music.volume(), 0.6, 3000);
 }
 
 function toggleMusic(){
@@ -179,6 +192,15 @@ function toggleMusic(){
     }
 
 }
+
+function setCurrentTrack(index){
+    currentTrack = index;
+}
+
+function getCurrentTrack(){
+    return currentTrack;
+}
+
 
 
 function playHistory(index){
@@ -199,6 +221,48 @@ function playHistory(index){
         Music.fade(Music.volume(), 0.25, 1500);
     }
     history.play();
+}
+
+
+function playWindow(index){
+    if (windowAudio){
+        windowAudio.stop();
+    }
+
+    windowAudio = new Howl({
+        src: [windowTracks[index]],
+        volume: 1.0,
+        onend: () => {
+            if (Music){
+                Music.fade(Music.volume(), 0.6, 3000);
+            }
+        }
+    });
+    if (Music){
+        Music.fade(Music.volume(), 0.25, 1500);
+    }
+    windowAudio.play();
+}
+
+
+function playHVAC(index){
+    if (hvacAudio){
+        hvacAudio.stop();
+    }
+
+    hvacAudio = new Howl({
+        src: [hvacTracks[index]],
+        volume: 1.0,
+        onend: () => {
+            if (Music){
+                Music.fade(Music.volume(), 0.6, 3000);
+            }
+        }
+    });
+    if (Music){
+        Music.fade(Music.volume(), 0.25, 1500);
+    }
+    hvacAudio.play();
 }
 
 function changeCaptions(){
@@ -367,16 +431,12 @@ function prevPage(){
 
 
 function showWindowModal(){
-    console.log(1)
     currentPageIndex2 = 0;
-    handleGuide("defineW")
     updatePageWindow();
     WindowModal.style.display = "block"; 
-    
 }
 
 function closeWindowModal(){ 
-    console.log(2)   
     WindowModal.style.display = "none"
     WindowModal.style.zIndex = 9999;
     handleGuide("stopW")
@@ -441,18 +501,15 @@ function prevPageWindow(){
 
 
 function showHVACModal(){
-    console.log("Show")
     currentPageIndex3 = 0;
-    handleGuide("defineHVAC")
     updatePageHVAC();
-    HVACModal.style.display = "block"
+    HVACModal.style.display = "block";
     
 }
 
 function closeHVACModal(){ 
-    console.log("Close") 
-    handleGuide("stopHVAC")
-    HVACModal.style.display = "none"
+    handleGuide("stopHVAC");
+    HVACModal.style.display = "none";
 }
 
 
@@ -651,6 +708,7 @@ function handleGuide(section) {
 
             case "music":
                 playMusic(0);
+                setCurrentTrack(0);
                 break;
 
             case "stopMusic":
@@ -698,8 +756,11 @@ function handleGuide(section) {
 
             case "stopH":
                 if (history) {
-                    history.fade(history.volume(), 0.0, 2000);
-                    history.stop();
+                    history.fade(history.volume(), 0.0, 500);
+                    setTimeout(() =>{
+                        history.stop();
+                    }, 500);
+                    
                 }
                 if (Music){
                     Music.fade(Music.volume(), 0.6, 3000);
@@ -710,167 +771,176 @@ function handleGuide(section) {
             case "door":
                 
                 door = new Howl({
-                    src: ['audio\\Narration\\Door.m4a']
+                    src: ['audio/Narration/Door.m4a'],
+                    onend: () =>{
+                        if (Music){
+                            Music.fade(Music.volume(), 0.6, 3000)
+                        }
+                        
+                    }
                 });
-                Music.volume(0.25);
+                if (Music){
+                    Music.fade(Music.volume(), 0.25, 1500);
+                }
                 door.play();
 
                 break;
 
             case "stopD":
-                door.stop();
-                Music.volume(0.60);
-                break;
-
-
-
-            // Windows/Hallway
-            case "defineW":
-                W1 = new Howl({
-                    src: ['audio\\Narration\\W1.m4a']
-
-                });
-                W2 = new Howl({
-                    src: ['audio\\Narration\\W2.m4a']
-
-                });
-                W3 = new Howl({
-                    src: ['audio\\Narration\\W3.m4a']
-
-                });
+                if (door){
+                    door.fade(door.volume(), 0.0, 500)
+                    setTimeout(() => {
+                        door.stop();
+                    }, 500);
+                    
+                }
+                if (Music){
+                    Music.fade(Music.volume(), 0.60, 3000);
+                }
                 break;
 
             case 'W1':
-                Music.volume(0.25);
-                W3.stop();
-                W2.stop();
-                W1.play();
+                playWindow(0);
                 break;
             
             case "W2":
-                Music.volume(0.25);
-                W1.stop();
-                W3.stop();
-                W2.play();
+                playWindow(1);
                 break;
             
             case "W3":
-                Music.volume(0.25);
-                W1.stop();
-                W2.stop();
-                W3.play();
+                playWindow(2);
                 break;
 
             case "stopW":
-                Music.volume(0.60);
-                W1.stop();
-                W2.stop();
-                W3.stop();
+                if (windowAudio){
+                    windowAudio.fade(windowAudio.volume(), 0.0, 500);
+                    setTimeout(()=>{
+                        windowAudio.stop();
+                    }, 500);
+                    
+                }
+                if (Music){
+                    Music.fade(Music.volume(), 0.6, 3000);
+                }
                 break;
-
-
-
 
             // HVAC/Lounge
-
-            case "defineHVAC":
-                HVAC1 = new Howl({
-                    src: ['audio\\Narration\\HVAC 1.m4a']
-                });
-                HVAC2 = new Howl({
-                    src: ['audio\\Narration\\HVAC 2.m4a']
-                });
-                break;
-
             case "HVAC1":
-                Music.volume(0.25);
-                HVAC1.play();
-                HVAC2.stop();
+                playHVAC(0);
                 break;
 
             case "HVAC2":
-                Music.volume(0.25);
-                HVAC2.play();
-                HVAC1.stop();
+                playHVAC(1);
                 break;
 
             case "stopHVAC":
-                Music.volume(0.60);
-                HVAC1.stop();
-                HVAC2.stop();
+                if (hvacAudio){
+                    hvacAudio.fade(hvacAudio.volume(), 0.0, 500);
+                    setTimeout(()=>{
+                        hvacAudio.stop();
+                    }, 500);
+                }
+                if (Music){
+                    Music.fade(Music.volume(), 0.6, 3000);
+                }
                 break;
 
             case "pizza":
                 Pizza = new Howl({
-                    src: ['audio\\Narration\\Pizza.m4a']
+                    src: ['audio/Narration/Pizza.m4a']
                 })
-                Music.volume(0.25);
+                if (Music){
+                    Music.fade(Music.volume(), 0.25, 1500);
+                }
                 Pizza.play();
                 break;
+
             case "stopP":
-                Music.volume(0.60);
-                Pizza.stop();
-                break
-
-
+                if (Pizza){
+                    Pizza.fade(Pizza.volume(), 0.0, 500);
+                    setTimeout(() => {
+                        Pizza.stop();
+                    }, 500);
+                }    
+                if (Music){
+                    Music.fade(Music.volume(), 0.6, 3000);
+                }    
+                break;
 
             // Outside
             case "SW":
                 SW = new Howl({
-                    src: ['audio\\Narration\\SW.m4a']
+                    src: ['audio/Narration/SW.m4a'],
+                    volume: 1.0
                 });
-                Music.volume(0.25);
+
+                if (Music){
+                    Music.fade(Music.volume(), 0.25, 1500);
+                }
                 SW.play();
                 break;
 
             case "stopSW":
-                Music.volume(0.60);
-                SW.stop();
+                if (SW){
+                    SW.fade(SW.volume(), 0.0, 500);
+                    setTimeout(() => {
+                        SW.stop();
+                    }, 500);
+                }
+                if (Music){
+                    Music.fade(Music.volume(), 0.6, 3000);
+                }
                 break;
 
 
 
             case "RC":
                 RC = new Howl({
-                    src: ['audio\\Narration\\RC.m4a']
+                    src: ['audio/Narration/RC.m4a'],
+                    volume: 1.0
                 });
-                Music.volume(0.25);
+
+                if (Music){
+                    Music.fade(Music.volume(), 0.25, 1500);
+                }
                 RC.play();
                 break;
             
             case "stopRC":
-                RC.stop();
-                Music.volume(0.60);
+                if (RC){
+                    RC.fade(RC.volume(), 0.0, 500);
+                    setTimeout(() => {
+                        RC.stop();
+                    }, 500);
+                }
+                if (Music){
+                    Music.fade(Music.volume(), 0.6, 3000);
+                }
                 break;
 
 
             case "Bin":
                 Bin = new Howl({
-                    src: ['audio\\Narration\\Bin.m4a']
+                    src: ['audio/Narration/Bin.m4a'],
+                    volume: 1.0
                 });
+                if (Music){
+                    Music.fade(Music.volume(), 0.25, 1500);
+                }
                 Bin.play();
-                Music.volume(0.25);
                 break;
 
             case "stopBin":
-                Bin.stop();
-                Music.volume(0.60);
+                if (Bin){
+                    Bin.fade(Bin.volume(), 0.0, 500);
+                    setTimeout(() => {
+                        Bin.stop();
+                    }, 500);
+                }
+                if (Music){
+                    Music.fade(Music.volume(), 0.6, 3000);
+                }
                 break;
-
-
-            case "intro2":
-                introSound.stop()
-
-                introSound2 = new Howl({
-                    src: ['audio\\intro2.mp3']
-                });
-
-                introSound2.play();
-                captions.innerText = "The research wing that you currently see spans an impressive 3072 square feet. It can accommodate up to 50 users at once. Researchers at the University of Calgary grow their experimental plants here.  Later in the tour, you’ll learn about how researchers genetically modified canola to increase the yield (how much the plant produces)."
-                
-                //document.querySelector("#cameraWrapper").object3D.rotation.set(1, 1, 1);
-                break;
-
         }
     } else if (guideType() == "silent") {
         switch(section){
@@ -894,9 +964,6 @@ function handleGuide(section) {
     }
 
 }
-
-
-
 
 function getWorldPose(entity) {
   const obj = entity.object3D;

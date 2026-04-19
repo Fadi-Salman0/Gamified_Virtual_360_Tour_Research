@@ -208,6 +208,97 @@
         text-align: center;
     }
 
+ #HVACModal{
+        display: none;
+        /* background-color: whitesmoke; */
+        background-image: url(img/Info\ card\ but\ darker.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        position: absolute;
+        z-index: 99999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+  
+     #PizzaModal{
+        display: none;
+        
+        background-image: url(img/Info\ card\ but\ darker.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+    #BinModal{
+        display: none;
+        
+        background-image: url(img/Info\ card\ but\ darker.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+    #ChairModal{
+        display: none;
+        
+        background-image: url(img/Info\ card\ but\ darker.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+     #StormModal{
+        display: none;
+        
+        background-image: url(img/Info\ card\ but\ darker.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+
  #modalPage2Title{
       position: relative;
       top: 13.5%;
@@ -243,6 +334,87 @@
     line-height: 1.5;
     }
 
+
+  
+
+       #modalPage3Title{
+      position: relative;
+      top: 13.5%;
+      color: white;
+
+
+    }
+
+     #modalPage3Wrapper {
+      position: relative;
+      top: 20%;
+      left: 7%;
+      max-width: 88%;
+      max-height: 50%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column; /* stack content & image vertically */
+    }
+
+    #modalPage3Content {
+      color: white;
+      margin-bottom: 10px;
+    } 
+
+    #modalPage3Image {
+      align-self: center;
+      max-width: 100%;  /* respect parent’s 88% */
+      height: auto;     /* keep aspect ratio */
+    }
+
+
+
+
+     #modalPage3Content {
+    font-size: 22px;
+    line-height: 1.5;
+    }
+
+    #HVACModalClose{
+        position: absolute;
+        right: 0.5%;
+        top: 2%;
+    } 
+
+    #modalPage4Title{
+      position: relative;
+      top: 13.5%;
+      color: white;
+
+
+    }
+
+     #modalPage4Wrapper {
+      position: relative;
+      top: 20%;
+      left: 7%;
+      max-width: 88%;
+      max-height: 50%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column; /* stack content & image vertically */
+    }
+
+    #modalPage4Content {
+      color: white;
+      margin-bottom: 10px;
+    } 
+
+    #modalPage4Image {
+      align-self: center;
+      max-width: 100%;  /* respect parent’s 88% */
+      height: auto;     /* keep aspect ratio */
+    }
+
+    #modalPage4Content {
+    font-size: 22px;
+    line-height: 1.5;
+    }
 
 
  #Title{
@@ -333,6 +505,22 @@
 }
 
 #changeSceneModalTwo{
+    display: none;
+    left: 30%;
+    right: 30%;
+    top: 20%;
+    bottom: 40%;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    background-color: #FFCC00;
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+#changeSceneModalThree{
     display: none;
     left: 30%;
     right: 30%;
