@@ -1,0 +1,402 @@
+.button{
+    position: absolute;
+    z-index: 9998;   
+   }
+
+#prev{
+  position: absolute;
+  bottom: 25px;
+  left: 100px;
+}
+#next{
+  position: absolute;
+  bottom: 25px;
+  right: 100px;
+}
+
+
+.a-scene{
+    position: absolute;
+    z-index: 1;
+}
+#htm-btn-1{
+    position: absolute;
+    z-index: 9998; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+}
+#htm-btn-2{
+    position: absolute;
+    right: 1.5%;
+    z-index: 9998; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(3px 3px 22px #2b2b2b);
+}
+#htm-btn-3{
+    position: absolute;
+    right: 15%;
+    z-index: 9998; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(3px 3px 22px #2b2b2b);
+}
+#next-button{
+  display: none;
+  position: absolute; 
+  top: 20px;
+  left: 45%; 
+  right: 45%;
+  z-index: 9999;
+  filter: drop-shadow(3px 3px 22px #2b2b2b);
+  border-width: 2px;
+  border-color: whitesmoke;
+  color: whitesmoke;
+}
+#captions{
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 2.5%;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(3px 3px 22px #2b2b2b);
+    background-color: #2b2b2b;
+    opacity: 0.88;
+    display: none;
+}
+#locationModal{
+    display: none; 
+    background-image: url(img/Info\ card\ but\ darker.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    background-color: whitesmoke;
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+#DoorModal{
+    display: none;
+    /* background-color: whitesmoke; */
+    background-image: url(img/Info\ card\ but\ darker.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+
+#miniGameModal{
+   display: none;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    background-color: whitesmoke;
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+/* #canolaModal{
+    display: none;
+    
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    background-color: whitesmoke;
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+} */
+
+#modalPageTitle{
+  position: relative;
+  top: 13.5%;
+  color: white;
+}
+
+#modalPageWrapper {
+  position: relative;
+  top: 20%;
+  left: 7%;
+  max-width: 88%;
+  max-height: 50%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* stack content & image vertically */
+}
+
+#modalPageContent {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 22px;
+    line-height: 1.5;
+} 
+
+#modalPageImage {
+  align-self: center;
+  max-width: 100%;  /* respect parent’s 88% */
+  height: auto;     /* keep aspect ratio */
+}
+
+#BeginningModal{
+    display: none;
+    /* background-color: whitesmoke; */
+    background-image: url(img/Info\ card\ but\ darker.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+
+
+#tutorialModal{
+    display: none;
+    
+    background-image: url(img/Info\ card\ but\ darker.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+
+#WindowModal{
+        display: none;
+        /* background-color: whitesmoke; */
+        background-image: url(img/Info\ card\ but\ darker.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        position: absolute;
+        z-index: 99999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+
+ #modalPage2Title{
+      position: relative;
+      top: 13.5%;
+      color: white;
+
+
+    }
+
+     #modalPage2Wrapper {
+      position: relative;
+      top: 20%;
+      left: 7%;
+      max-width: 88%;
+      max-height: 50%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column; /* stack content & image vertically */
+    }
+
+    #modalPage2Content {
+      color: white;
+      margin-bottom: 10px;
+    } 
+
+    #modalPage2Image {
+      align-self: center;
+      max-width: 100%;  /* respect parent’s 88% */
+      height: auto;     /* keep aspect ratio */
+    }
+
+        #modalPage2Content {
+    font-size: 22px;
+    line-height: 1.5;
+    }
+
+
+
+ #Title{
+  position: relative;
+  top: 13.5%;
+  color: white;
+}
+.Title{
+  position: relative;
+  top: 13.5%;
+  color: white;
+}
+ #Wrapper {
+  position: relative;
+  top: 20%;
+  left: 7%;
+  max-width: 88%;
+  max-height: 50%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* stack content & image vertically */
+}
+.Wrapper {
+  position: relative;
+  top: 20%;
+  left: 7%;
+  max-width: 88%;
+  max-height: 50%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* stack content & image vertically */
+}
+#Text{
+    color: white;
+    margin-bottom: 10px;
+    font-size: 26px;
+    line-height: 1.5;
+} 
+.Text{
+  color: white;
+  margin-bottom: 10px;
+} 
+#Image {
+  align-self: center;
+  max-width: 100%;  /* respect parent’s 88% */
+  height: auto;     /* keep aspect ratio */
+}
+.Image {
+  align-self: center;
+  max-width: 100%;  /* respect parent’s 88% */
+  height: auto;     /* keep aspect ratio */
+}
+/* #carFacts{
+    display: none;
+    
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    background-color: whitesmoke;
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+} */
+.contentModal{
+  left: 2%;
+  right: 2%;
+  top: 8%;
+  bottom: 13%;
+  background: rgba(255, 0, 0, 0.3);
+}
+#changeSceneModal{
+    display: none;
+    left: 30%;
+    right: 30%;
+    top: 20%;
+    bottom: 40%;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    background-color: #FFCC00;
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+
+#changeSceneModalTwo{
+    display: none;
+    left: 30%;
+    right: 30%;
+    top: 20%;
+    bottom: 40%;
+    position: absolute;
+    z-index: 9999; 
+    margin-left: 1rem; 
+    margin-top: 1rem;
+    filter: drop-shadow(5px 5px 22px #2b2b2b);
+    background-color: #FFCC00;
+    border-radius: 9px;
+    padding: 2rem;
+    text-align: center;
+}
+
+#gh-img{
+    width: 400px;
+}
+
+#locationModalClose{
+    position: absolute;
+    right: 0.5%;
+    top: 2%;
+}
+ 
+#DoorModalClose{
+    position: absolute;
+    right: 0.5%;
+    top: 2%;
+}   
+    #windowModalClose{
+        position: absolute;
+        right: 0.5%;
+        top: 2%;
+    } 
+
+.a-enter-vr-button{
+    display: none;
+}
+.modal-content {
+  background-color: #FFCC00; /* light grey */
+  color: black; /* off-white text */
+}
+.modal-body .btn {
+  margin: 10px 0;
+  width: 100%;
+  max-width: 200px;
+}
+#customModal{
+  position: absolute;
+  z-index: 9999;
+}
+@keyframes pulseGreen {
+  0% {
+    background-color: #006400; /* DarkGreen */
+  }
+  50% {
+    background-color: #47b847; /* LightGreen */
+  }
+  100% {
+    background-color: #006400;
+  }
+}
+.pulse-green {
+  animation: pulseGreen 3s infinite;
+}

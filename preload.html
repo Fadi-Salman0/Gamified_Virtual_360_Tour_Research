@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap Modal</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .modal-content {
+      background-color: #d3d3d3; /* light grey */
+      color: #f8f9fa; /* off-white text */
+    }
+    .modal-body .btn {
+      margin: 10px 0;
+      width: 100%;
+      max-width: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Modal -->
+<div class="modal fade" id="customModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h5 class="modal-title w-100" id="customModalLabel">Welcome to the UCalgary Greenhouse tour!</h5>
+      </div>
+      <div class="modal-body d-flex flex-column align-items-center">
+        <h6>How would you like your tour?</h6>
+        <br>
+        <button class="btn btn-outline-light option-btn">Guided tour with narration</button>
+        <button class="btn btn-outline-light option-btn">Guided tour without narration</button>
+        <button class="btn btn-outline-light option-btn">I won't need a guide or narration</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Show modal on load and close only on button click -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const modalElement = document.getElementById('customModal');
+    const modalInstance = new bootstrap.Modal(modalElement);
+    modalInstance.show();
+
+    // Close modal when any option button is clicked
+    document.querySelectorAll('.option-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        modalInstance.hide();
+      });
+    });
+  });
+</script>
+</body>
+</html>

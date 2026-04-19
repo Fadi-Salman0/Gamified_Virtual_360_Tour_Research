@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Engineering Building Tour</title>
+    <meta name="description" content="Laser input UI • A-Frame">
+    <script src="js/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
+
+    <script src="js/highlight.js"></script>
+    <script src="js/info-panel.js"></script>
+  <!--- for rendering html on the 3d plane--->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-html-shader@1.3.0/dist/aframe-html-shader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-html-component@3.0.1/dist/aframe-html-component.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+  <body style="visibility: hidden;">
+  </div>
+</div>
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+    <button id="htm-btn-2" onclick="toggleMusic()" class="btn btn-primary"style="background-color: #FFCC00; color: black;">Toggle Music</button>
+    
+    <div id="miniGameModal" class="contentModal">
+        <button type="button" id="locationModalClose" class="btn btn-danger" onclick="closeMemoryGame()">Close</button>
+        <iframe src="https://onehtmlpagechallenge.com/entries/memory-game.html" width="85%" height="90%"></iframe>
+    </div>
+
+ 
+
+    <div id="changeSceneModal">
+      <h3>Do you want to move into the lounge?</h3>
+      <br>
+      <br>
+      <a type="button" class="btn btn-success" href="Lounge.html">Yes</a>
+      <button type="button" class="btn btn-danger" onclick="closeTransition()">No</button>
+
+    </div>
+    <div id="changeSceneModalTwo">
+      <h3>Are you sure you want to move to the hallway?</h3>
+      <br>
+      <br>
+      <a type="button" class="btn btn-success" href="Hallway.html?from=SOL">Yes</a>
+      <button type="button" class="btn btn-danger" onclick="closeTransitionTwo()">No</button>
+
+    </div>
+    <div id="changeSceneModalThree">
+      <h3>Do you want to go outside?</h3>
+      <br>
+      <br>
+      <a type="button" class="btn btn-success" href="Outside.html">Yes</a>
+      <button type="button" class="btn btn-danger" onclick="closeTransitionThree()">No</button>
+
+    </div>
+
+    <!--
+    <div class="contentModal" id="carFacts">
+      <button type="button" id="locationModalClose" class="btn btn-danger" onclick="closeCarModal()">Close</button>
+      <center>
+      <h1>This is a title?</h1>
+      <br>
+      <h2>This is a subtitle</h2>
+        </center>
+
+    </div>
+    -->
+
+
+    <div id="captions" class="btn btn-primary">
+      This is where captions will appear!  Note: You must select "Guided tour with naration" to enable captions
+    </div>
+
+    
+    <a-scene
+      cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+      info-message="htmlSrc: #messageText">
+        <a-sky src="img/scenes/ENG lounge.jpg" position="0,-20,0" ></a-sky>
+
+      <a-assets>
+
+        <img id="karigurashiPoster" src="img/icons/Arrow.png" crossorigin="anonymous"/>
+        <img id="ToHallway" src="img/icons/Arrow.png" crossorigin="anonymous"/>
+        <img id="MoveOut" src="img/icons/Arrow.png" crossorigin="anonymous"/>
+        
+        <!--
+        <img id="ponyoPoster" src="img/icons/play_button.png" crosSsorigin="anonymous"/>
+
+        
+        
+        <img src="img/icons/audio.png" crossorigin="anonymous" id="audioImage">
+
+        <img src="img/icons/argus.jpg" crossorigin="anonymous" id="argusImage">
+        <img src="img/icons/244561.jpg" crossorigin="anonymous" id="car">
+
+      -->
+
+        <audio src="audio/sample2.mp3" id="sample" preload="auto"></audio>
+
+        <a-mixin
+          id="frame"
+          geometry="primitive: plane; width: 0.5783552; height: 0.8192"
+          material="color: white; shader: flat"
+          animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+         ></a-mixin>
+
+         <a-mixin
+          id="circular-frame"
+          geometry="primitive: circle; radius: 0.22"
+          material="color: white; shader: flat"
+          animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+         ></a-mixin>
+
+         <a-mixin
+          id="circular-poster"
+          geometry="primitive: circle; radius: 0.2"
+          material="color: white; shader: flat"
+          material="shader: flat"
+          animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+          position="0 0 0.005"
+         ></a-mixin>
+
+         <a-mixin
+          id="poster"
+          geometry="primitive: plane; width: 0.544768; height: 0.786432"
+          material="color: white; shader: flat"
+          material="shader: flat"
+          position="0 0 0.005"
+         ></a-mixin>
+
+
+         <a-mixin
+          id="movieImage"
+          geometry="primitive: plane; width: 1.5; height: 0.81"
+          material="src: #ponyo; shader: flat; transparent: true"
+          position="0 0.495 0.002"
+         ></a-mixin>
+
+
+      </a-assets>
+
+      <a-entity
+        id="background"
+        position="0 0 0"
+        geometry="primitive: sphere; radius: 1.0"
+        material="color: red; side: back; shader: flat"
+        scale="0.001 0.001 0.001"
+        visible="false" class="raycastable">
+      </a-entity>
+
+
+
+  <a-entity id="cameraRigSOL" position="0 0 0" rotation="0 -75 0" tween-loop>
+    <a-entity id="cameraWrapper" position="0 1.6 0" rotation="0 0 0">
+      <a-entity id="userCamera" camera look-controls wasd-controls="acceleration: 4"></a-entity>
+    </a-entity>
+  </a-entity>
+
+
+
+
+  <button class="pulse-green btn"  id="next-button" onclick="mover()">Next Tour Item</button>
+
+      <!-- Hand controls -->
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+
+      <a-entity id="ui" position="0 1.6 -2.5">
+        <!-- Poster menu -->
+        
+          
+          <a-entity id="menu" highlight>
+          <a-entity id="karigurashiButton" position="5 -0.42 2.143" rotation="-5.82 -80 -1.656" mixin="circular-poster" class="raycastable menu-button">
+            <a-entity material="src: #karigurashiPoster;" mixin="circular-poster"></a-entity>
+          </a-entity>
+          <a-entity id="MoveToHallway" position="-2.693 -0.016 4.65" rotation="-1.032 128 0" mixin="circular-poster" class="raycastable" onclick="showTransitionTwo()">
+            <a-entity material="src: #ToHallway;" mixin="circular-poster"></a-entity>
+            </a-entity>
+          <a-entity id="MoveThree" position="-3.947 0.088 -1.734" rotation="-1.032 51.719 0" mixin="circular-poster" class="raycastable menu-button">
+            <a-entity material="src: #MoveOut;" mixin="circular-poster"></a-entity>
+            </a-entity>
+
+          <!--
+          
+
+
+          <a-entity id="ponyoButton" rotation="0 -90 0" position="4 -0.1 4.5" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #ponyoPoster" mixin="poster"></a-entity>
+          </a-entity>
+
+          <a-entity id="audioButton" rotation="0 90 0" position="-2 -0.1 2" mixin="circular-frame" class="raycastable menu-button">
+            <a-entity material="src: #audioImage" mixin="circular-poster" geometry="circle"></a-entity>
+          </a-entity>
+
+          <a-entity id="argusIcon" rotation="0 260 0" position="0.8 0.2 2.5" mixin="circular-frame"  class="raycastable menu-button">
+            <a-entity material="src: #argusImage" mixin="circular-poster" geometry="circle"></a-entity>
+          </a-entity>
+
+          <a-entity id="buttonNew" rotation="0 260 0" position="1.8 0.2 2.5" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #car" mixin="poster"></a-entity>
+          </a-entity>
+        
+          -->
+        </a-entity>
+
+        <!-- Info panel of the selected movie. 
+        change the first position coors 
+        
+        -->
+        <a-entity
+          id="infoPanel"
+          position="0 0 0.85"
+          info-panel
+          visible="false"
+          scale="0.001 0.001 0.001"
+          geometry="primitive: plane; width: 1.5; height: 1.8"
+          material="color: #333333; shader: flat; transparent: true" class="raycastable">
+          <a-entity id="movieTitle"
+            position="-0.68 -0.1 0"
+            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"></a-entity>
+          <a-entity id="movieDescription"
+            position="-0.68 -0.2 0"
+            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></a-entity>
+        </a-entity>
+
+      
+      </a-entity>
+    </a-scene>
+    
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    const modalElement = document.getElementById('customModal');
+    const modalInstance = new bootstrap.Modal(modalElement);
+    modalInstance.show();
+
+    //hide the global navigation
+    const htm_btn_1 = document.getElementById("htm-btn-1");
+    const htm_btn_2 = document.getElementById("htm-btn-2");
+    const htm_btn_3 = document.getElementById("htm-btn-3");    
+
+    htm_btn_1.style.display = "none";
+    htm_btn_2.style.display = "none";
+    htm_btn_3.style.display = "none";
+
+    const nextButton = document.getElementById("next-button");
+
+    // Close modal when any option button is clicked
+    document.querySelectorAll('.option-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        modalInstance.hide();
+            htm_btn_1.style.display = "block";
+            htm_btn_2.style.display = "block";
+            htm_btn_3.style.display = "block";
+            nextButton.style.display = "block";
+
+            console.log(guideType());
+
+            handleGuide('intro');
+      });
+    });
+  });
+</script>
+
+<style>
+    .button{
+        position: absolute;
+        z-index: 9998;
+    
+    }
+
+    .a-scene{
+        position: absolute;
+        z-index: 1;
+    }
+
+    #htm-btn-1{
+        position: absolute;
+        z-index: 9998; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+    }
+
+    #htm-btn-2{
+        position: absolute;
+        right: 1.5%;
+        z-index: 9998; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(3px 3px 22px #2b2b2b);
+    }
+
+    #htm-btn-3{
+        position: absolute;
+        right: 15%;
+        z-index: 9998; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(3px 3px 22px #2b2b2b);
+    }
+
+    #next-button{
+      display: none;
+      position: absolute; 
+      top: 20px;
+      left: 45%; 
+      right: 45%;
+      z-index: 9999;
+      filter: drop-shadow(3px 3px 22px #2b2b2b);
+      border-width: 2px;
+      border-color: whitesmoke;
+      color: whitesmoke;
+    }
+
+    #captions{
+        position: absolute;
+        left: 5%;
+        right: 5%;
+        bottom: 2.5%;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(3px 3px 22px #2b2b2b);
+        background-color: #2b2b2b;
+        opacity: 0.88;
+        display: none;
+    }
+
+    #locationModal{
+        display: none; 
+
+
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        background-color: whitesmoke;
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    #miniGameModal{
+       display: none;
+
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        background-color: whitesmoke;
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    #canolaModal{
+        display: none;
+        
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        background-color: whitesmoke;
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #carFacts{
+        display: none;
+        
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        background-color: whitesmoke;
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+    .contentModal{
+      left: 2%;
+      right: 2%;
+      top: 8%;
+      bottom: 13%;
+    }
+
+    #changeSceneModal{
+        display: none;
+        left: 30%;
+        right: 30%;
+        top: 20%;
+        bottom: 40%;
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        background-color: #FFCC00;
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+    #changeSceneModalTwo{
+        display: none;
+        left: 30%;
+        right: 30%;
+        top: 20%;
+        bottom: 40%;
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        background-color: #FFCC00;
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+    #changeSceneModalThree{
+        display: none;
+        left: 30%;
+        right: 30%;
+        top: 20%;
+        bottom: 40%;
+        position: absolute;
+        z-index: 9999; 
+        margin-left: 1rem; 
+        margin-top: 1rem;
+        filter: drop-shadow(5px 5px 22px #2b2b2b);
+        background-color: #FFCC00;
+        border-radius: 9px;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    #gh-img{
+        width: 400px;
+    }
+    
+    #locationModalClose{
+        position: absolute;
+        right: 0.5%;
+        top: 2%;
+    }
+     
+    .a-enter-vr-button{
+        display: none;
+    }
+
+    .modal-content {
+      background-color: #5abdff; /* light grey */
+      color: #f8f9fa; /* off-white text */
+    }
+    .modal-body .btn {
+      margin: 10px 0;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    #customModal{
+      position: absolute;
+      z-index: 9999;
+    }
+
+    @keyframes pulseGreen {
+      0% {
+        background-color: #006400; /* DarkGreen */
+      }
+      50% {
+        background-color: #47b847; /* LightGreen */
+      }
+      100% {
+        background-color: #006400;
+      }
+    }
+
+.pulse-green {
+  animation: pulseGreen 3s infinite;
+}
+</style>
