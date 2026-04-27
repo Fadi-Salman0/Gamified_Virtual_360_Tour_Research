@@ -370,7 +370,7 @@ function showMemoryGame(){
     handleGuide("stopMusic");
 
     if (isMobileDevice()) {
-        const gameUrl = new URL("Gam/AttemptTwo.html", window.location.href);
+        const gameUrl = new URL("Game/AttemptTwo.html", window.location.href);
         gameUrl.searchParams.set("returnTo", window.location.href);
 
         window.location.href = (gameUrl.toString());
@@ -379,7 +379,7 @@ function showMemoryGame(){
 
     pauseSceneForGame();
     miniGameModal.style.display = "block";
-    game.src = "Gam/AttemptTwo.html";
+    game.src = "Game/AttemptTwo.html";
 }
 
 function closeMemoryGame(){
