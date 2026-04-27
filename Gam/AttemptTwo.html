@@ -16,6 +16,7 @@ body {
 	background-color: black;
 	overflow: hidden;
 	touch-action: none;
+	font-family: Arial, sans-serif;
 }
 
 #canvas {
@@ -75,12 +76,40 @@ body {
 	text-align: center;
 	z-index: 1;
 }
+
+#return-to-tour {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 3;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1rem;
+	border: 0;
+	border-radius: 999px;
+	background: rgba(24, 24, 24, 0.85);
+	color: white;
+	font-size: 0.95rem;
+	font-weight: 600;
+	cursor: pointer;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+#return-to-tour:focus {
+	outline: 2px solid white;
+	outline-offset: 2px;
+}
+
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="AttemptTwo.icon.png" />
 <link rel="apple-touch-icon" href="AttemptTwo.apple-touch-icon.png"/>
 
 	</head>
 	<body>
+		<button id="return-to-tour" type="button">Back to Tour</button>
 		<canvas id="canvas">
 			Your browser does not support the canvas tag.
 		</canvas>
@@ -100,6 +129,19 @@ body {
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"AttemptTwo","experimentalVK":false,"fileSizes":{"AttemptTwo.pck":13377312,"AttemptTwo.wasm":43016933},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
+const returnButton = document.getElementById('return-to-tour');
+const returnParams = new URLSearchParams(window.location.search);
+const returnTo = returnParams.get('returnTo') || '../Enterance.html';
+const isEmbedded = window.self !== window.top;
+
+if (isEmbedded) {
+	returnButton.style.display = 'none';
+} else {
+	returnButton.addEventListener('click', () => {
+		window.location.href = returnTo;
+	});
+}
+
 
 (function () {
 	const statusOverlay = document.getElementById('status');

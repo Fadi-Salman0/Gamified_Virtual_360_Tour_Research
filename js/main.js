@@ -340,20 +340,77 @@ function closePizzaModal(){
 }
 
 
+function isMobileDevice() {
+    return window.matchMedia("(pointer: coarse)").matches ||
+        /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+}
+
+function getSceneElement() {
+    return document.querySelector("a-scene");
+}
+
+function pauseSceneForGame() {
+    const scene = getSceneElement();
+    if (scene) {
+        scene.pause();
+    }
+}
+
+function resumeSceneAfterGame() {
+    const scene = getSceneElement();
+    if (scene) {
+        scene.play();
+    }
+}
+
 
 
 
 function showMemoryGame(){
-    miniGameModal.style.display = "block";
-    game.src = "/Gam/AttemptTwo.html";
     handleGuide("stopMusic");
+
+    if (isMobileDevice()) {
+        const gameUrl = new URL("Gam/AttemptTwo.html", window.location.href);
+        gameUrl.searchParams.set("returnTo", window.location.href);
+
+        const mobileGameWindow = window.open(gameUrl.toString(), "_blank", "noopener,noreferrer");
+        if (!mobileGameWindow) {
+            window.location.href = gameUrl.toString();
+        }
+        return;
+    }
+
+    pauseSceneForGame();
+    miniGameModal.style.display = "block";
+    game.src = "Gam/AttemptTwo.html";
 }
 
 function closeMemoryGame(){
     miniGameModal.style.display = "none";
-    handleGuide("music")
+    handleGuide("music");
     game.removeAttribute("src");
+    resumeSceneAfterGame();
 }
+
+
+
+// function showMemoryGame(){
+//     // miniGameModal.style.display = "block";
+//     window.open("/Gam/AttemptTwo.html", "_blank", "noopener,noreferrer");
+//     handleGuide("stopMusic");
+// }
+
+// function closeMemoryGame(){
+//     const scene = document.querySelector('a-scene');
+
+//     miniGameModal.style.display = "none";
+//     handleGuide("music")
+//     game.removeAttribute("src");
+
+//      if (scene) {
+//         scene.play();
+//     }
+// }
 
 function showCanolaModal(){
     canolaModal.style.display = "flex";
