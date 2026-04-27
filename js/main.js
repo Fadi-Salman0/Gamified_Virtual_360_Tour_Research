@@ -373,10 +373,7 @@ function showMemoryGame(){
         const gameUrl = new URL("Gam/AttemptTwo.html", window.location.href);
         gameUrl.searchParams.set("returnTo", window.location.href);
 
-        const mobileGameWindow = window.open(gameUrl.toString(), "_blank", "noopener,noreferrer");
-        if (!mobileGameWindow) {
-            window.location.href = gameUrl.toString();
-        }
+        window.location.href = (gameUrl.toString());
         return;
     }
 
