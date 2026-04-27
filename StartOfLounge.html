@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Engineering Building Tour</title>
     <meta name="description" content="Laser input UI • A-Frame">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
 
@@ -26,7 +27,7 @@
 
     <button id="htm-btn-2" onclick="toggleMusic()" class="btn btn-primary"style="background-color: #FFCC00; color: black;">Toggle Music</button>
    
-    <div id="changeSceneModal">
+    <div id="changeSceneModal" class="changeSceneModalClass">
       <h3>Do you want to move into the lounge?</h3>
       <br>
       <br>
@@ -34,7 +35,7 @@
       <button type="button" class="btn btn-danger" onclick="closeTransition()">No</button>
 
     </div>
-    <div id="changeSceneModalTwo">
+    <div id="changeSceneModalTwo" class="changeSceneModalClass">
       <h3>Are you sure you want to move to the hallway?</h3>
       <br>
       <br>
@@ -42,7 +43,7 @@
       <button type="button" class="btn btn-danger" onclick="closeTransitionTwo()">No</button>
 
     </div>
-    <div id="changeSceneModalThree">
+    <div id="changeSceneModalThree" class="changeSceneModalClass">
       <h3>Do you want to go outside?</h3>
       <br>
       <br>

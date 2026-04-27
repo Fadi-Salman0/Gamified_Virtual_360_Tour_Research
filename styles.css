@@ -1,17 +1,26 @@
+html, body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
 .button{
     position: absolute;
     z-index: 9998;   
    }
 
+
+/* Module with multiple page button controls */
 #prev{
   position: absolute;
-  bottom: 25px;
-  left: 100px;
+  bottom: 0.75rem;
+  left: 3.5rem;
 }
 #next{
   position: absolute;
-  bottom: 25px;
-  right: 100px;
+  bottom: 0.75rem;
+  right: 3.5rem;
 }
 
 
@@ -19,6 +28,8 @@
     position: absolute;
     z-index: 1;
 }
+
+/* GLOBAL BUTTONS */
 #htm-btn-1{
     position: absolute;
     z-index: 9998; 
@@ -28,20 +39,15 @@
 }
 #htm-btn-2{
     position: absolute;
-    right: 1.5%;
+    right: 1rem;
     z-index: 9998; 
     margin-left: 1rem; 
     margin-top: 1rem;
     filter: drop-shadow(3px 3px 22px #2b2b2b);
 }
-#htm-btn-3{
-    position: absolute;
-    right: 15%;
-    z-index: 9998; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(3px 3px 22px #2b2b2b);
-}
+
+
+/* SHOULD BE REMOVED BUT I DONT WANT IT TO BREAK */
 #next-button{
   display: none;
   position: absolute; 
@@ -54,6 +60,9 @@
   border-color: whitesmoke;
   color: whitesmoke;
 }
+
+
+
 #captions{
     position: absolute;
     left: 5%;
@@ -67,40 +76,48 @@
     opacity: 0.88;
     display: none;
 }
-#locationModal{
-    display: none; 
-    background-image: url(img/Info\ card\ but\ darker.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: 9999; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(5px 5px 22px #2b2b2b);
-    background-color: whitesmoke;
-    border-radius: 9px;
-    padding: 2rem;
-    text-align: center;
+
+
+.contentModal{
+  left: 2%;
+  right: 2%;
+  top: 8%;
+  bottom: 13%;
+  
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  /* background-color: whitesmoke; */
+  background-image: url(img/Info\ card\ but\ darker.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 9999; 
+  margin-left: 1rem; 
+  margin-top: 1rem;
+  filter: drop-shadow(5px 5px 22px #2b2b2b);
+  
+  border-radius: 9px;
+  padding: 2rem;
+  text-align: center;
+
+
 }
-#DoorModal{
-    display: none;
-    /* background-color: whitesmoke; */
-    background-image: url(img/Info\ card\ but\ darker.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: 9999; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(5px 5px 22px #2b2b2b);
-    
-    border-radius: 9px;
-    padding: 2rem;
-    text-align: center;
-}
+
 
 #miniGameModal{
-   display: none;
+  left: 2%;
+  right: 2%;
+  top: 8%;
+  bottom: 13%;
+  
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
     position: absolute;
     z-index: 9999; 
     margin-left: 1rem; 
@@ -111,36 +128,7 @@
     padding: 2rem;
     text-align: center;
 }
-/* #canolaModal{
-    display: none;
-    
-    position: absolute;
-    z-index: 9999; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(5px 5px 22px #2b2b2b);
-    background-color: whitesmoke;
-    border-radius: 9px;
-    padding: 2rem;
-    text-align: center;
-} */
 
-#modalPageTitle{
-  position: relative;
-  top: 13.5%;
-  color: white;
-}
-
-#modalPageWrapper {
-  position: relative;
-  top: 20%;
-  left: 7%;
-  max-width: 88%;
-  max-height: 50%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column; /* stack content & image vertically */
-}
 
 #modalPageContent {
     color: white;
@@ -149,231 +137,22 @@
     line-height: 1.5;
 } 
 
-#modalPageImage {
-  align-self: center;
-  max-width: 100%;  /* respect parent’s 88% */
-  height: auto;     /* keep aspect ratio */
+
+
+#modalPage2Content {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.5;
+} 
+
+
+#modalPage3Content {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.5;
 }
-
-#BeginningModal{
-    display: none;
-    /* background-color: whitesmoke; */
-    background-image: url(img/Info\ card\ but\ darker.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: 9999; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(5px 5px 22px #2b2b2b);
-    
-    border-radius: 9px;
-    padding: 2rem;
-    text-align: center;
-}
-
-
-#tutorialModal{
-    display: none;
-    
-    background-image: url(img/Info\ card\ but\ darker.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: 9999; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(5px 5px 22px #2b2b2b);
-    
-    border-radius: 9px;
-    padding: 2rem;
-    text-align: center;
-}
-
-#WindowModal{
-        display: none;
-        /* background-color: whitesmoke; */
-        background-image: url(img/Info\ card\ but\ darker.jpg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-
-        position: absolute;
-        z-index: 99999; 
-        margin-left: 1rem; 
-        margin-top: 1rem;
-        filter: drop-shadow(5px 5px 22px #2b2b2b);
-        
-        border-radius: 9px;
-        padding: 2rem;
-        text-align: center;
-    }
-
- #HVACModal{
-        display: none;
-        /* background-color: whitesmoke; */
-        background-image: url(img/Info\ card\ but\ darker.jpg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-
-        position: absolute;
-        z-index: 99999; 
-        margin-left: 1rem; 
-        margin-top: 1rem;
-        filter: drop-shadow(5px 5px 22px #2b2b2b);
-        
-        border-radius: 9px;
-        padding: 2rem;
-        text-align: center;
-    }
-  
-     #PizzaModal{
-        display: none;
-        
-        background-image: url(img/Info\ card\ but\ darker.jpg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-
-
-        position: absolute;
-        z-index: 9999; 
-        margin-left: 1rem; 
-        margin-top: 1rem;
-        filter: drop-shadow(5px 5px 22px #2b2b2b);
-        
-        border-radius: 9px;
-        padding: 2rem;
-        text-align: center;
-    }
-    #BinModal{
-        display: none;
-        
-        background-image: url(img/Info\ card\ but\ darker.jpg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-
-
-        position: absolute;
-        z-index: 9999; 
-        margin-left: 1rem; 
-        margin-top: 1rem;
-        filter: drop-shadow(5px 5px 22px #2b2b2b);
-        
-        border-radius: 9px;
-        padding: 2rem;
-        text-align: center;
-    }
-    #ChairModal{
-        display: none;
-        
-        background-image: url(img/Info\ card\ but\ darker.jpg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-
-
-        position: absolute;
-        z-index: 9999; 
-        margin-left: 1rem; 
-        margin-top: 1rem;
-        filter: drop-shadow(5px 5px 22px #2b2b2b);
-        
-        border-radius: 9px;
-        padding: 2rem;
-        text-align: center;
-    }
-     #StormModal{
-        display: none;
-        
-        background-image: url(img/Info\ card\ but\ darker.jpg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-
-
-        position: absolute;
-        z-index: 9999; 
-        margin-left: 1rem; 
-        margin-top: 1rem;
-        filter: drop-shadow(5px 5px 22px #2b2b2b);
-        
-        border-radius: 9px;
-        padding: 2rem;
-        text-align: center;
-    }
-
- #modalPage2Title{
-      position: relative;
-      top: 13.5%;
-      color: white;
-
-
-    }
-
-     #modalPage2Wrapper {
-      position: relative;
-      top: 20%;
-      left: 7%;
-      max-width: 88%;
-      max-height: 50%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column; /* stack content & image vertically */
-    }
-
-    #modalPage2Content {
-      color: white;
-      margin-bottom: 10px;
-    } 
-
-    #modalPage2Image {
-      align-self: center;
-      max-width: 100%;  /* respect parent’s 88% */
-      height: auto;     /* keep aspect ratio */
-    }
-
-        #modalPage2Content {
-    font-size: 22px;
-    line-height: 1.5;
-    }
-
-
-  
-
-       #modalPage3Title{
-      position: relative;
-      top: 13.5%;
-      color: white;
-
-
-    }
-
-     #modalPage3Wrapper {
-      position: relative;
-      top: 20%;
-      left: 7%;
-      max-width: 88%;
-      max-height: 50%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column; /* stack content & image vertically */
-    }
-
-    #modalPage3Content {
-      color: white;
-      margin-bottom: 10px;
-    } 
-
-    #modalPage3Image {
-      align-self: center;
-      max-width: 100%;  /* respect parent’s 88% */
-      height: auto;     /* keep aspect ratio */
-    }
-
-
-
-
-     #modalPage3Content {
-    font-size: 22px;
-    line-height: 1.5;
-    }
 
     #HVACModalClose{
         position: absolute;
@@ -381,71 +160,39 @@
         top: 2%;
     } 
 
-    #modalPage4Title{
-      position: relative;
-      top: 13.5%;
-      color: white;
-
-
-    }
-
-     #modalPage4Wrapper {
-      position: relative;
-      top: 20%;
-      left: 7%;
-      max-width: 88%;
-      max-height: 50%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column; /* stack content & image vertically */
-    }
+  
 
     #modalPage4Content {
       color: white;
       margin-bottom: 10px;
-    } 
-
-    #modalPage4Image {
-      align-self: center;
-      max-width: 100%;  /* respect parent’s 88% */
-      height: auto;     /* keep aspect ratio */
-    }
-
-    #modalPage4Content {
     font-size: 22px;
     line-height: 1.5;
     }
 
-
- #Title{
-  position: relative;
-  top: 13.5%;
-  color: white;
-}
 .Title{
-  position: relative;
-  top: 13.5%;
+  margin-top: clamp(10px, 5vh, 40px);
+  font-size: clamp(18px, 4vw, 32px);
+  margin-bottom: 1.5rem;
+  position: static;
   color: white;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  /* min-height: 2.5rem; */
 }
- #Wrapper {
-  position: relative;
-  top: 20%;
-  left: 7%;
-  max-width: 88%;
-  max-height: 50%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column; /* stack content & image vertically */
-}
+
 .Wrapper {
   position: relative;
-  top: 20%;
-  left: 7%;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  top: 4vh;
+  left: 0%;
   max-width: 88%;
-  max-height: 50%;
+  max-height: 55%;
   overflow-y: auto;
   display: flex;
   flex-direction: column; /* stack content & image vertically */
+  align-items: center;
 }
 #Text{
     color: white;
@@ -467,78 +214,62 @@
   max-width: 100%;  /* respect parent’s 88% */
   height: auto;     /* keep aspect ratio */
 }
-/* #carFacts{
-    display: none;
-    
-    position: absolute;
-    z-index: 9999; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(5px 5px 22px #2b2b2b);
-    background-color: whitesmoke;
-    border-radius: 9px;
-    padding: 2rem;
-    text-align: center;
-} */
-.contentModal{
-  left: 2%;
-  right: 2%;
-  top: 8%;
-  bottom: 13%;
-  background: rgba(255, 0, 0, 0.3);
-}
+
 #changeSceneModal{
     display: none;
-    left: 30%;
-    right: 30%;
-    top: 20%;
-    bottom: 40%;
+    width: 75%;
+    max-width: 50rem;
+
+    height: 65%;
+    max-height: 35vh;
+
+    overflow-y: auto;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     position: absolute;
     z-index: 9999; 
     margin-left: 1rem; 
     margin-top: 1rem;
     filter: drop-shadow(5px 5px 22px #2b2b2b);
     background-color: #FFCC00;
-    border-radius: 9px;
+    border-radius: 0.5rem;
     padding: 2rem;
     text-align: center;
 }
 
-#changeSceneModalTwo{
+
+.changeSceneModalClass{
     display: none;
-    left: 30%;
-    right: 30%;
-    top: 20%;
-    bottom: 40%;
+    width: 75%;
+    max-width: 50rem;
+
+    height: 65%;
+    max-height: 35vh;
+
+    overflow-y: auto;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     position: absolute;
     z-index: 9999; 
     margin-left: 1rem; 
     margin-top: 1rem;
     filter: drop-shadow(5px 5px 22px #2b2b2b);
     background-color: #FFCC00;
-    border-radius: 9px;
+    border-radius: 0.5rem;
     padding: 2rem;
     text-align: center;
 }
-#changeSceneModalThree{
-    display: none;
-    left: 30%;
-    right: 30%;
-    top: 20%;
-    bottom: 40%;
-    position: absolute;
-    z-index: 9999; 
-    margin-left: 1rem; 
-    margin-top: 1rem;
-    filter: drop-shadow(5px 5px 22px #2b2b2b);
-    background-color: #FFCC00;
-    border-radius: 9px;
-    padding: 2rem;
-    text-align: center;
-}
+
 
 #gh-img{
-    width: 400px;
+    width: 75%;
+    max-width: 75rem;
 }
 
 #locationModalClose{
@@ -574,6 +305,9 @@
   position: absolute;
   z-index: 9999;
 }
+
+
+
 @keyframes pulseGreen {
   0% {
     background-color: #006400; /* DarkGreen */
@@ -587,4 +321,39 @@
 }
 .pulse-green {
   animation: pulseGreen 3s infinite;
+}
+
+@media (min-width: 1024px) {
+  .Title {
+    margin-top: clamp(40px, 10vh, 200px); 
+    
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+ 
+
+  .Title{
+  margin-top: clamp(10px, 2vh, 40px);
+  margin-bottom: 1.5rem;
+  position: static;
+  color: white;
+}
+
+  .Wrapper {
+  position: relative;
+  gap: 0.5rem;
+  top: 0vh;
+  left: 0%;
+  max-width: 88%;
+  max-height: 45%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* stack content & image vertically */
+}
+
+
 }

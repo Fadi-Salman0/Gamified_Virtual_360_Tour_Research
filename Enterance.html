@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Engineering Building Tour</title>
     <meta name="description" content="Laser input UI • A-Frame">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
 
@@ -26,28 +27,24 @@
 
     <button id="htm-btn-2" onclick="toggleMusic()" class="btn btn-primary"style="background-color: #FFCC00; color: black;">Toggle Music</button>
 
-    <div id="miniGameModal" class="contentModal">
+    <div id="miniGameModal">
         <button type="button" id="locationModalClose" class="btn btn-danger" onclick="closeMemoryGame()">Close</button>
-        <iframe id="Tgame" src="https://localhost:4443/Gam/AttemptTwo.html" width="85%" height="90%"></iframe>
+        <iframe id="Tgame" width="85%" height="90%"></iframe>
     </div>
 
     <div id="BeginningModal" class="contentModal">
         <button type="button" id="locationModalClose" class="btn btn-danger" onclick="closeBeginningModal()">Close</button>
-        <h1 id="modalPageTitle"></h1>
-        <br>
-        <div id="modalPageWrapper">
+        <h1 id="modalPageTitle" class="Title"></h1>
+        <div id="modalPageWrapper" class="Wrapper">
           <div id="modalPageContent" style="text-align: left;"></div>
-          <img id="modalPageImage" style="max-width: 30%; margin-top: 1rem; border-radius: 8px;" />
+          <img id="modalPageImage" style="width: 50%; max-width: 30rem; margin-top: 1rem; border-radius: 8px;" />
         </div>
-        <br>
-        <br>
         <button type="button" id="prev"  onclick="prevPage()" >&#8592; Previous</button>
         <button type="button" id="next" onclick="nextPage()">Next →</button>         
-        <br>
-        </div>
+      </div>
 
 
-    <div id="changeSceneModal">
+    <div id="changeSceneModal" class="changeSceneModalClass">
       <h3>Are you sure you want to exit the building?</h3>
       <br>
       <br>
@@ -55,7 +52,8 @@
       <button type="button" class="btn btn-danger" onclick="closeTransition()">No</button>
 
     </div>
-    <div id="changeSceneModalTwo">
+
+    <div id="changeSceneModalTwo" class="changeSceneModalClass">
       <h3>Are you sure you want to move to the hallway?</h3>
       <br>
       <br>
@@ -67,11 +65,10 @@
 
     <div id="DoorModal" class="contentModal">
         <button type="button" id="DoorModalClose" class="btn btn-danger" onclick="closeDoorModal()">Close</button>
-        <h1 id="Title">The Door To Nowhere!</h3>
-        <br> 
-        <div id="Wrapper">
+        <h1 class="Title">The Door To Nowhere!</h3>
+        <div class="Wrapper">
           <div id="Text" style="text-align: left;">A door that has been here even before the completion to the expansion of the Engineering building. Some people think the door is an engineering mistake, other think this door has something magical on the other side. However, to this day it remains a mystery on why the door was built.</div>
-          <img id="Image" src="img/Door.jpg" style="max-width: 30%; margin-top: 1rem; border-radius: 8px;" />
+          <img id="Image" src="img/Door.jpg" style="width: 50%; max-width: 30rem; margin-top: 1rem; border-radius: 8px;" />
         </div>
         <br>
         <br>

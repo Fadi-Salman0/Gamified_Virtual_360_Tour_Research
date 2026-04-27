@@ -281,8 +281,9 @@ function changeCaptions(){
 
 
 
+
 function showCarModal(){
-    carFactsModal.style.display = "block";
+    carFactsModal.style.display = "flex";
 }
 
 function closeCarModal(){
@@ -291,7 +292,7 @@ function closeCarModal(){
 
 
 function showLocationModal(){
-    locationModal.style.display = "block";
+    locationModal.style.display = "flex";
 }
 
 function closeLocationModal(){
@@ -299,7 +300,7 @@ function closeLocationModal(){
 }
 
 function showDoorModal(){
-    DoorModal.style.display = "block";
+    DoorModal.style.display = "flex";
     handleGuide("door")
 }
 
@@ -309,7 +310,7 @@ function closeDoorModal(){
 }
 
 function showBinModal(){
-    BinModal.style.display = "block";
+    BinModal.style.display = "flex";
     handleGuide("Bin")
 }
 
@@ -319,7 +320,7 @@ function closeBinModal(){
 }
 
 function showChairModal(){
-    ChairModal.style.display = "block";
+    ChairModal.style.display = "flex";
     handleGuide("RC")
 }
 
@@ -329,7 +330,7 @@ function closeChairModal(){
 }
 
 function showPizzaModal(){
-    PizzaModal.style.display = "block";
+    PizzaModal.style.display = "flex";
     handleGuide("pizza")
 }
 
@@ -344,18 +345,18 @@ function closePizzaModal(){
 
 function showMemoryGame(){
     miniGameModal.style.display = "block";
-    handleGuide("stopMusic")
+    game.src = "/Gam/AttemptTwo.html";
+    handleGuide("stopMusic");
 }
 
 function closeMemoryGame(){
     miniGameModal.style.display = "none";
     handleGuide("music")
-    game.src = "";
-    game.src = "https://localhost:4443/Gam/AttemptTwo.html";
+    game.removeAttribute("src");
 }
 
 function showCanolaModal(){
-    canolaModal.style.display = "block";
+    canolaModal.style.display = "flex";
 }
 
 function closeCanolaModal(){    
@@ -363,7 +364,7 @@ function closeCanolaModal(){
 }
 
 function showTutorialModal(){
-    tutorialModal.style.display = "block";
+    tutorialModal.style.display = "flex";
     handleGuide("tutorial")
 }
 
@@ -375,7 +376,7 @@ function closeTutorialModal(){
 function showBeginningModal(){
     currentPageIndex = 0;
     updatePage();
-    BeginningModal.style.display = "block";    
+    BeginningModal.style.display = "flex";    
 }
 
 function closeBeginningModal(){  
@@ -433,7 +434,7 @@ function prevPage(){
 function showWindowModal(){
     currentPageIndex2 = 0;
     updatePageWindow();
-    WindowModal.style.display = "block"; 
+    WindowModal.style.display = "flex"; 
 }
 
 function closeWindowModal(){ 
@@ -503,7 +504,7 @@ function prevPageWindow(){
 function showHVACModal(){
     currentPageIndex3 = 0;
     updatePageHVAC();
-    HVACModal.style.display = "block";
+    HVACModal.style.display = "flex";
     
 }
 
@@ -567,7 +568,7 @@ function prevPageHVAC(){
 // Storm Water Management
 
 function showStormModal(){
-    StormModal.style.display = "block";
+    StormModal.style.display = "flex";
     updatePageStorm();
     handleGuide("SW")
 }
@@ -677,9 +678,6 @@ function closeTransitionThree(){
 }
 
 
-
-
-
 function setGuideType(type){
     localStorage.setItem("guideType", String(type));
 }
@@ -687,6 +685,8 @@ function setGuideType(type){
 function guideType() {
     return localStorage.getItem("guideType");
 }
+
+
 
 function handleGuide(section) {
     // this function will play the respective audio for the portion of the tour we want, global=

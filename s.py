@@ -90,12 +90,12 @@ args = parser.parse_args()
 
 # Set port and server configuration based on arguments
 if args.unsecure:
-    server_address = ("localhost", 8080)
+    server_address = ("0.0.0.0", 8080)
     httpd = http.server.HTTPServer(server_address, MyRequestHandler)
     print(f"Serving on http://{server_address[0]}:{server_address[1]}/")
 else:
     cert_path, key_path = get_cert_and_key()
-    server_address = ("localhost", 4443)
+    server_address = ("0.0.0.0", 4443)
     httpd = http.server.HTTPServer(server_address, MyRequestHandler)
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     context.load_cert_chain(certfile=cert_path, keyfile=key_path)

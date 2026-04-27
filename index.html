@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Engineering Building Tour</title>
     <meta name="description" content="Laser input UI • A-Frame">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
 
@@ -53,14 +54,9 @@
     <div id="locationModal" class="contentModal">
         <button type="button" id="locationModalClose" class="btn btn-danger" onclick="closeLocationModal()">Close</button>
         <h3 class="Title">The Engineering building is located here!</h3>
-        <br>
         <div class="Wrapper">
-          <br>
-          <br>
           <img id="gh-img" class="Image" src="img/SchulichLearn.jpg" alt="Picture Engineering Building">
-          <br>
-          <br>
-          <a href="https://schulich.ucalgary.ca" style="max-width: 20%; align-self: center;" class="btn btn-primary" target="_blank" tabindex="-1" role="button" aria-disabled="true">Learn more about this building!</a>
+          <a href="https://schulich.ucalgary.ca" style="max-width: 40%; align-self: center;" class="btn btn-primary" target="_blank" tabindex="-1" role="button" aria-disabled="true">Learn more about this building!</a>
         </div>
         
         
@@ -69,26 +65,18 @@
 
     <div id="tutorialModal" class="contentModal">
         <button type="button" id="locationModalClose" class="btn btn-danger" onclick="closeTutorialModal()">Close</button>
-        <h1 id="Title" class="Title">Welcome To The Tutorial!</h1>
-        <br>
-        <div id="Wrapper">
+        <h1 class="Title">Welcome To The Tutorial!</h1>
+        <div class="Wrapper">
           <div id="Text" style="text-align: center;">The following symbol is the information button. This symbol indicates the main part of the tour.</div>
-          <img id="Image" src="img/icons/InfoButton.png" style="max-width: 8%; margin-top: 1rem; border-radius: 8px;" />
-          <br>
-          <br>
+          <img class="Image" src="img/icons/InfoButton.png" style="width: 25%; max-width: 6rem; margin-top: 1rem; border-radius: 8px;" />
           <div id="Text" style="text-align: center;">The following symbol is the discoverables button. This symbol highlights some interesting points in each room.</div>
-          <img id="Image" src="img/icons/QuestionMarkpng.png" style="max-width: 8%; margin-top: 1rem; border-radius: 8px;" />
+          <img class="Image" src="img/icons/QuestionMarkpng.png" style="width: 25%; max-width: 6rem; margin-top: 1rem; border-radius: 8px;" />
         </div>       
-        <br>
     </div>
 
 
     <div id="changeSceneModal">
-      <br>
-      <br>
-      <br>
       <h3>Are you sure you want to go to the other scene?</h3>
-      <br>
       <br>
       <a type="button" class="btn btn-success" href="Enterance.html">Yes</a>
       <button type="button" class="btn btn-danger" onclick="closeTransition()">No</button>
@@ -242,6 +230,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const htm_btn_1 = document.getElementById("htm-btn-1");
     const htm_btn_2 = document.getElementById("htm-btn-2");   
 
+    const elem = document.documentElement;
+
     htm_btn_1.style.display = "none";
     htm_btn_2.style.display = "none";
 
@@ -250,12 +240,12 @@ window.addEventListener('DOMContentLoaded', () => {
     // Close modal when any option button is clicked
     document.querySelectorAll('.option-btn').forEach(button => {
       button.addEventListener('click', () => {
+
         modalInstance.hide();
             htm_btn_1.style.display = "block";
             htm_btn_2.style.display = "block";
             nextButton.style.display = "block";
 
-            localStorage.setItem("guideType", guideType());
             console.log(guideType());
 
             playMusic(0);

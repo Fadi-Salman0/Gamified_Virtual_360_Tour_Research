@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Engineering Building Tour</title>
     <meta name="description" content="Laser input UI • A-Frame">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
 
@@ -27,30 +28,20 @@
 
     <button id="htm-btn-2" onclick="toggleMusic()" class="btn btn-primary"style="background-color: #FFCC00; color: black;">Toggle Music</button>
     
- 
-    <div id="miniGameModal" class="contentModal">
-        <button type="button" id="locationModalClose" class="btn btn-danger" onclick="closeMemoryGame()">Close</button>
-        <iframe src="https://localhost:4443/Gam/AttemptTwo.html" width="85%" height="90%"></iframe>
-    </div>
 
     <div id="WindowModal" class="contentModal">
-        <button type="button" id="windowModalClose" class="btn btn-danger" onclick="closeWindowModal()">Close</button>
-        <h1 id="modalPage2Title"></h1>
-        <br>
-        <div id="modalPage2Wrapper">
-          <div id="modalPage2Content" style="text-align: left;"></div>
-          <img id="modalPage2Image" style="max-width: 30%; margin-top: 1rem; border-radius: 8px;" />
-        </div>
-        <br>
-        <br>
-        <button type="button" id="prev"  onclick="prevPageWindow()" >&#8592; Previous</button>
-        <button type="button" id="next" onclick="nextPageWindow()">Next →</button>         
-        <br>
-        
-        </div>
+      <button type="button" id="windowModalClose" class="btn btn-danger" onclick="closeWindowModal()">Close</button>
+      <h1 id="modalPage2Title" class="Title"></h1>
+      <div id="modalPage2Wrapper" class="Wrapper">
+        <div id="modalPage2Content" style="text-align: left;"></div>
+        <img id="modalPage2Image" style="width: 50%; max-width: 30rem; margin-top: 1rem; border-radius: 8px;" />
+      </div>
+      <button type="button" id="prev"  onclick="prevPageWindow()" >&#8592; Previous</button>
+      <button type="button" id="next" onclick="nextPageWindow()">Next →</button>                 
+    </div>
 
 
-    <div id="changeSceneModal">
+    <div id="changeSceneModal" class="changeSceneModalClass">
       <h3>Are you sure you want to go back to the enterance of the building?</h3>
       <br>
       <br>
@@ -58,7 +49,7 @@
       <button type="button" class="btn btn-danger" onclick="closeTransition()">No</button>
 
     </div>
-    <div id="changeSceneModalTwo">
+    <div id="changeSceneModalTwo" class="changeSceneModalClass">
       <h3>Do you want to head to the lounge?</h3>
       <br>
       <br>
